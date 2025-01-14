@@ -48,7 +48,7 @@ async function handle_request(){
             throw new Error(response.status);
         }else{
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
 
         const success_msg = document.createElement("div");
         success_msg.setAttribute("class", "success-msg");
@@ -132,7 +132,7 @@ async function process_image(img_url){
             const new_first_quarter = await apply_filter(first_quarter,sharpen_matrix);
             const filter_end = performance.now();
             ctx.putImageData(new_first_quarter,0,0,0,0,(img.width/2)<<0,(img.height/2)<<0);
-            //console.log("qt. 1 done");
+            console.log("qt. 1 done");
 
             const time_diff = filter_end-filter_start;
             const new_time  = document.createElement("p");
@@ -214,7 +214,7 @@ function apply_filter(image_data, filter_matrix){
     const filter_size = 3;
     // filter_center - poziția în care se află centrul filtrului (aici o să fie 1 pt filtre 3x3)
     var filter_center = ( filter_matrix.length / 2 ) << 0 // << 0 teoretic înmulțește rezultatul împărțirii cu 2^0; scopul este trunchierea părții fracționare
-    console.log(filter_center);
+    //console.log(filter_center);
     // gi reprezintă iteratorul pt fiecare element al array-ului dat
     for ( var gi = 0; gi < image_data.length; gi++ ) {
       var go = ( gi % 4 ) // 0 - roșu, 1 - verde, 2 - albastru, 3 - canalul alfa (care rămâne neschimbat)
@@ -265,7 +265,7 @@ function add_timers(timers_list, wrapper){
     for(i in timers_list){
         timer_show.innerHTML+=`<p> Timpul de procesare pentru cadranul #${i+1}: ${timers_list[i]}</p>`;
     }
-    console.log(timer_show);
+    //console.log(timer_show);
     wrapper.appendChild(timer_show);
 }
 
