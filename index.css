@@ -1,0 +1,15 @@
+.error-msg{
+    color: red;
+}
+
+.success-msg{
+    color:green;
+}
+
+img{
+    max-width: 50%;
+}
+
+canvas{
+    max-width: 50%;
+}
